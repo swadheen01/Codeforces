@@ -1,0 +1,10 @@
+* Recursion
+* Dp
+* DFS & BSF basic
+* Binary Search
+* Number Theory
+* Bitmasking
+
+* Ordered set (GP Hash)
+* Bit er through power binomial exponential
+* 2 er power O(1)

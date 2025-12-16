@@ -1,0 +1,58 @@
+/*
+ *Copyright (c) Swadheen Islam Robi (SIR01)
+ *Created on Thu Nov 20 2025 8:25:23 PM
+ */
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+#define pie 2 * (acos(0.0))
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define pb push_back
+#define endl "\n"
+#define lcm(a, b) (a * b) / (__gcd<ll>(a, b))
+#define mod 1000000007
+#define srt(v) sort(v.begin(), v.end())
+#define rsrt(v) sort(v.rbegin(), v.rend())
+#define print(vec)        \
+    for (auto e : vec)    \
+        cout << e << " "; \
+    cout << endl
+#define ALLAHU_AKBAR             \
+    ios::sync_with_stdio(false); \
+    cin.tie(nullptr);
+
+void sir()
+{
+    ll n, x, y;
+    cin >> n >> x >> y;
+    vector<ll> v(n);
+    map<pair<ll, ll>, ll> mp;
+    for (auto &c : v)
+        cin >> c;
+
+    ll ans = 0;
+    for (auto s : v)
+    {
+        ll a1 = s % x, a2 = s % y;
+        ll rq1 = (x - a1) % x;
+        ll rq2 = a2;
+        ans += (mp[{rq1, rq2}]);
+        mp[{a1, a2}]++;
+    }
+    cout << ans << endl;
+}
+
+int main()
+{
+    ALLAHU_AKBAR
+
+    ll t = 1;
+    cin >> t;
+    while (t--)
+    {
+        sir();
+    }
+    return 0;
+}
