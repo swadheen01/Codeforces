@@ -16,9 +16,8 @@ using namespace std;
 #define srt(v) sort(v.begin(),v.end())
 #define rsrt(v) sort(v.rbegin(),v.rend())
 #define ALLAHU_AKBAR ios::sync_with_stdio(false); cin.tie(nullptr);
-vector<ll>primes;
 
-void sir2()
+void sir()
 {
     int x;
     cin >> x;
@@ -61,40 +60,9 @@ void sir2()
     
 }
 
-void seive(ll mx)
-{
-    vector<bool>pp(mx,1);
-    pp[0] = 0, pp[1] = 0;
-    for(ll i=2; i*i<=mx; i++)
-    {
-        if(pp[i])
-        {
-            for(ll j = i*i; j<=mx; j+=i)
-            {
-                pp[j] = 0;
-            }
-        }
-    }
-    for(ll i=2; i<mx; i++) if(pp[i]) primes.pb(i);
-}
-void sir()
-{
-    //for(auto e:primes) cout<<e<<" ";
-    ll d; cin>>d;
-    ll a,b,c;
-    a = 1;
-    auto it = lower_bound(primes.begin(), primes.end(), a+d);
-    b = *it;
-    auto it3 = lower_bound(primes.begin(), primes.end(), b+d);
-    c = *it3;
-
-    cout<<a*b*c<<endl;
-}
-
 int main() {
     ALLAHU_AKBAR
 
-    seive(1000000);
     ll t = 1;
     cin>>t;
     while(t--)

@@ -34,50 +34,17 @@ void sir()
 
     for(ll i = 0; i < n; i++) cin >> p[i];
     for(ll i = 0; i < n; i++) cin >> q[i];
-    vector<ll>pm(n), qm(n);
-    pm[0] = 0, qm[0] = 0;
-    for(ll i=1; i<n; i++)
-    {
-        if(p[i]>p[pm[i-1]])
-        {
-            pm[i] = i;
-            
-        }
-        else pm[i] = pm[i-1];
-    }
-    for(ll i=1; i<n; i++)
-    {
-        if(q[i]>q[qm[i-1]])
-        {
-            qm[i] = i;
-            
-        }
-        else qm[i] = qm[i-1];
-    }
-    // for(auto &e:pm) cout<<e<<" "; cout<<endl;
-    // for(auto &e:qm) cout<<e<<" ";
-    ll pmx = 0, qmx = 0, j = 0, k = 0;
+
     for(ll i = 0; i < n; i++) {
-        pmx = max(pmx, p[i]);
-        qmx = max(qmx, q[i]);
-        if(pmx == p[i]) j = i;
-        if(qmx == q[i]) k = i;
-
-        ll jj = i-j, kk = i-k;  // j er pair and k er pair
-
-        if(p[j]>q[k])
-        {
-            r[i] = (pp[p[j]] + pp[q[jj]])%mod;
+        ll mx = 0;
+        for(ll j = max(0ll,i-1000); j <= i; j++) {
+            ll v1 = pp[p[j]];
+            ll v2 = pp[q[i-j]];
+            ll sum = (v1 + v2) % mod;
+            
+            mx = max(sum,mx);
         }
-        else if(p[j]<q[k])
-        {
-            r[i] = (pp[q[k]] + pp[p[kk]])%mod;
-        }
-        else{
-            if(p[kk]>q[jj]) r[i] = (pp[p[kk]] + pp[q[k]])%mod;
-            else r[i] = (pp[q[jj]] + pp[p[j]])%mod;
-        }
-        
+        r[i] = mx;
     }
 
     for(ll i = 0; i < n; i++) {
